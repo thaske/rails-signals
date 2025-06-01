@@ -1,4 +1,4 @@
-import { A, useNavigate, useParams } from "@solidjs/router";
+import { useNavigate, useParams } from "@solidjs/router";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/solid-query";
 import { For, Match, Switch } from "solid-js";
 import { apiRequest } from "../../utils/api";
@@ -83,9 +83,9 @@ export default function PostShow() {
           return (
             <div class="post-detail">
               <nav class="breadcrumb">
-                <A href="/" class="breadcrumb__link">
+                <a href="/" class="breadcrumb__link">
                   ← Back to Feed
-                </A>
+                </a>
               </nav>
 
               <article class="post">
@@ -108,12 +108,12 @@ export default function PostShow() {
                       </span>
                     </div>
                     <div class="post__actions">
-                      <A
+                      <a
                         href={`/posts/${data.post.id}/edit`}
                         class="button button--secondary button--small"
                       >
                         Edit
-                      </A>
+                      </a>
                       <button
                         class="button button--danger button--small"
                         onClick={handleDeletePost}

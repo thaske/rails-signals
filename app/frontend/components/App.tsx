@@ -1,30 +1,24 @@
 import { Route, Router } from "@solidjs/router";
+import { lazy } from "solid-js";
+
+const PostEdit = lazy(() => import("./posts/PostEdit"));
+const PostNew = lazy(() => import("./posts/PostNew"));
+const PostShow = lazy(() => import("./posts/PostShow"));
+const PostsList = lazy(() => import("./posts/PostsList"));
+
 import { QueryClient, QueryClientProvider } from "@tanstack/solid-query";
-
 import "./App.scss";
-import FlashMessages from "./FlashMessages";
-import PostEdit from "./posts/PostEdit";
-import PostNew from "./posts/PostNew";
-import PostShow from "./posts/PostShow";
-import PostsList from "./posts/PostsList";
 
-const queryClient = new QueryClient({
-  defaultOptions: {
-    queries: {
-      staleTime: 1000 * 60 * 5, // 5 minutes
-      retry: (failureCount, error: any) => {
-        if (error?.status === 404) return false;
-        return failureCount < 3;
-      },
-    },
-  },
-});
-
-export default function App() {
+export default function App({
+  queryClient,
+  url,
+}: {
+  queryClient: QueryClient;
+  url: string;
+}) {
   return (
     <QueryClientProvider client={queryClient}>
-      <FlashMessages />
-      <Router>
+      <Router url={url}>
         <Route path="/" component={PostsList} />
         <Route path="/posts/new" component={PostNew} />
         <Route path="/posts/:id" component={PostShow} />

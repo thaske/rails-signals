@@ -1,7 +1,6 @@
-import { A } from "@solidjs/router";
+import { apiRequest } from "@/utils/api";
 import { useQuery } from "@tanstack/solid-query";
 import { For, Match, Switch } from "solid-js";
-import { apiRequest } from "../../utils/api";
 import "../common.scss";
 import "./PostsList.scss";
 
@@ -23,15 +22,16 @@ export default function PostsList() {
       const response = await apiRequest("/posts.json");
       return response.json();
     },
+    staleTime: 1000 * 60 * 5, // 5 minutes
   }));
 
   return (
     <div class="posts-index">
       <div class="page-header">
         <h1 class="page-header__title">Feed</h1>
-        <A href="/posts/new" class="button button--primary button--normal">
+        <a href="/posts/new" class="button button--primary button--normal">
           New Post
-        </A>
+        </a>
       </div>
 
       <Switch>
@@ -46,7 +46,7 @@ export default function PostsList() {
         <Match when={postsQuery.isSuccess}>
           <div class="posts-grid">
             <For
-              each={postsQuery.data}
+              each={postsQuery.data as Post[]}
               fallback={
                 <div class="no-posts">
                   No posts yet. Be the first to share something!
@@ -57,7 +57,7 @@ export default function PostsList() {
                 <article class="post-card">
                   <header class="post-card__header">
                     <h2 class="post-card__title">
-                      <A href={`/posts/${post.id}`}>{post.title}</A>
+                      <a href={`/posts/${post.id}`}>{post.title}</a>
                     </h2>
                     <div class="post-card__meta">
                       <span class="post-card__author">by {post.user.name}</span>

@@ -18,6 +18,9 @@ gem "tzinfo-data", platforms: %i[ windows jruby ]
 # Build tool
 gem "vite_rails"
 
+# SSR
+gem "universal_renderer", path: "../universal_renderer"
+
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri windows ], require: "debug/prelude"
@@ -25,3 +28,5 @@ group :development, :test do
   # Generate fake data for development and testing
   gem "faker"
 end
+
+

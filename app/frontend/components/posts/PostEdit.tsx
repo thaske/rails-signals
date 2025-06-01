@@ -1,4 +1,4 @@
-import { A, useNavigate, useParams } from "@solidjs/router";
+import { useNavigate, useParams } from "@solidjs/router";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/solid-query";
 import { createSignal, For, Show } from "solid-js";
 import { apiRequest } from "../../utils/api";
@@ -42,7 +42,7 @@ export default function PostEdit() {
       postId: number;
       postData: { title: string; content: string };
     }) => {
-      const response = await apiRequest(`/posts/${postId}`, {
+      const response = await apiRequest(`/posts/${postId}.json`, {
         method: "PATCH",
         body: JSON.stringify({ post: postData }),
       });
@@ -89,15 +89,15 @@ export default function PostEdit() {
       >
         <div class="container">
           <nav class="breadcrumb">
-            <A href={`/posts/${params.id}`} class="breadcrumb__link">
+            <a href={`/posts/${params.id}`} class="breadcrumb__link">
               ← Back to Post
-            </A>
+            </a>
           </nav>
 
           <div class="card">
             <h1>Edit Post</h1>
 
-            <Show when={errors().length > 0}>
+            <Show when={errors()}>
               <div class="error-messages">
                 <For each={errors()}>{(error) => <div>{error}</div>}</For>
               </div>
@@ -140,12 +140,12 @@ export default function PostEdit() {
                 >
                   {updatePostMutation.isPending ? "Updating..." : "Update Post"}
                 </button>
-                <A
+                <a
                   href={`/posts/${params.id}`}
                   class="button button--secondary button--normal"
                 >
                   Cancel
-                </A>
+                </a>
               </div>
             </form>
           </div>

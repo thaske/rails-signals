@@ -9,8 +9,8 @@ class ApplicationController < ActionController::Base
 
   def current_user
     @current_user ||= User.first || User.create!(
-      name: "Demo User",
-      email: "demo@example.com"
+      name: 'Demo User',
+      email: 'demo@example.com'
     )
   end
 

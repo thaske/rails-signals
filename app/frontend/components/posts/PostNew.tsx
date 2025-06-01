@@ -1,6 +1,6 @@
-import { A, useNavigate } from "@solidjs/router";
+import { useNavigate } from "@solidjs/router";
 import { useMutation, useQueryClient } from "@tanstack/solid-query";
-import { createSignal, For, Show } from "solid-js";
+import { createSignal } from "solid-js";
 import { apiRequest } from "../../utils/api";
 import { useFlash } from "../../utils/flash";
 import "../common.scss";
@@ -45,19 +45,13 @@ export default function PostNew() {
   return (
     <div class="container">
       <nav class="breadcrumb">
-        <A href="/" class="breadcrumb__link">
+        <a href="/" class="breadcrumb__link">
           ← Back to Feed
-        </A>
+        </a>
       </nav>
 
       <div class="card">
         <h1>New Post</h1>
-
-        <Show when={errors().length > 0}>
-          <div class="error-messages">
-            <For each={errors()}>{(error) => <div>{error}</div>}</For>
-          </div>
-        </Show>
 
         <form onSubmit={handleSubmit}>
           <div class="form__field">
@@ -96,9 +90,9 @@ export default function PostNew() {
             >
               {createPostMutation.isPending ? "Creating..." : "Create Post"}
             </button>
-            <A href="/" class="button button--secondary button--normal">
+            <a href="/" class="button button--secondary button--normal">
               Cancel
-            </A>
+            </a>
           </div>
         </form>
       </div>

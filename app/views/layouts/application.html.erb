@@ -14,9 +14,11 @@
 
     <%= vite_client_tag %>
     <%= vite_typescript_tag 'app.tsx' %>
+
+    <%= ssr_head %>
   </head>
 
   <body>
-    <div id="app"></div>
+    <div id="app"><%= ssr_body %></div>
   </body>
 </html>

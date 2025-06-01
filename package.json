@@ -1,6 +1,9 @@
 {
   "private": true,
   "type": "module",
+  "scripts": {
+    "ssr": "bun run public/vite-ssr/ssr.js"
+  },
   "devDependencies": {
     "@types/node": "^22.15.29",
     "sass-embedded": "^1.89.1",
@@ -11,6 +14,9 @@
   "dependencies": {
     "@solidjs/router": "^0.15.3",
     "@tanstack/solid-query": "^5.79.0",
-    "solid-js": "^1.9.7"
+    "@types/express": "^5.0.2",
+    "express": "^5.1.0",
+    "solid-js": "^1.9.7",
+    "universal-renderer": "link:universal-renderer"
   }
 }
