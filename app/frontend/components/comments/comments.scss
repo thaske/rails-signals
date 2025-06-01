@@ -1,0 +1,77 @@
+// Comments components styles using BEM pattern
+
+// Comment form
+.comment-form {
+  background: #f8f9fa;
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 30px;
+  border: 1px solid #e9ecef;
+}
+
+// Comments list
+.comments-list {
+  margin-top: 20px;
+}
+
+.comment {
+  background: #f8f9fa;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 15px;
+  border: 1px solid #e9ecef;
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+
+    @media (max-width: 768px) {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 10px;
+    }
+  }
+
+  &__author {
+    font-weight: 600;
+    color: #495057;
+    margin-right: 10px;
+  }
+
+  &__date {
+    color: #6c757d;
+    font-size: 0.85em;
+  }
+
+  &__actions {
+    display: flex;
+    gap: 8px;
+
+    @media (max-width: 768px) {
+      align-self: flex-end;
+    }
+  }
+
+  &__content {
+    line-height: 1.6;
+    color: #333;
+    font-size: 1em;
+  }
+}
+
+.no-comments {
+  text-align: center;
+  color: #6c757d;
+  font-style: italic;
+  padding: 30px 20px;
+  background: #f8f9fa;
+  border-radius: 8px;
+  border: 1px solid #e9ecef;
+  margin-top: 20px;
+
+  p {
+    margin: 0;
+  }
+}

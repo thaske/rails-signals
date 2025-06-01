@@ -1,0 +1,223 @@
+// Common shared styles using BEM pattern
+
+// Button component
+.button {
+  display: inline-block;
+  border: none;
+  border-radius: 6px;
+  font-weight: 500;
+  text-decoration: none;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+
+  // Size modifiers
+  &--tiny {
+    padding: 4px 8px;
+    font-size: 0.75em;
+  }
+
+  &--small {
+    padding: 6px 12px;
+    font-size: 0.8em;
+  }
+
+  &--normal {
+    padding: 10px 16px;
+    font-size: 0.9em;
+  }
+
+  // Variant modifiers
+  &--primary {
+    background-color: #3498db;
+    color: white;
+
+    &:hover {
+      background-color: #2980b9;
+      color: white;
+      text-decoration: none;
+    }
+  }
+
+  &--secondary {
+    background-color: #6c757d;
+    color: white;
+
+    &:hover {
+      background-color: #5a6268;
+      color: white;
+      text-decoration: none;
+    }
+  }
+
+  &--danger {
+    background-color: #e74c3c;
+    color: white;
+
+    &:hover {
+      background-color: #c0392b;
+      color: white;
+      text-decoration: none;
+    }
+  }
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+
+  @media (max-width: 768px) {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+// Form components
+.form {
+  &__field {
+    margin-bottom: 20px;
+  }
+
+  &__label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #495057;
+  }
+
+  &__input {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #e9ecef;
+    border-radius: 6px;
+    font-size: 1em;
+    font-family: inherit;
+    transition: border-color 0.3s ease;
+    box-sizing: border-box;
+
+    &:focus {
+      outline: none;
+      border-color: #3498db;
+      box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+    }
+  }
+
+  &__textarea {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #e9ecef;
+    border-radius: 6px;
+    font-size: 1em;
+    font-family: inherit;
+    transition: border-color 0.3s ease;
+    box-sizing: border-box;
+    resize: vertical;
+    min-height: 100px;
+
+    &:focus {
+      outline: none;
+      border-color: #3498db;
+      box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+    }
+  }
+
+  &__actions {
+    display: flex;
+    gap: 12px;
+    margin-top: 25px;
+    flex-wrap: wrap;
+
+    @media (max-width: 768px) {
+      flex-direction: column;
+    }
+  }
+}
+
+// Error messages
+.error-messages {
+  background: #f8d7da;
+  color: #721c24;
+  padding: 15px;
+  border-radius: 6px;
+  margin-bottom: 20px;
+  border: 1px solid #f5c6cb;
+
+  &__title {
+    margin: 0 0 10px 0;
+    font-size: 1em;
+  }
+
+  &__list {
+    margin: 0;
+    padding-left: 20px;
+  }
+}
+
+// Layout components
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+
+  &__title {
+    color: #2c3e50;
+    margin: 0;
+  }
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
+  }
+}
+
+.card {
+  background: white;
+  border-radius: 8px;
+  padding: 30px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e9ecef;
+
+  @media (max-width: 768px) {
+    padding: 20px;
+  }
+}
+
+.breadcrumb {
+  margin-bottom: 20px;
+
+  &__link {
+    color: #3498db;
+    text-decoration: none;
+    font-weight: 500;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+// Loading and error states
+.loading-message {
+  text-align: center;
+  color: #6c757d;
+  padding: 20px;
+  font-size: 1.1em;
+}
+
+.error-message {
+  text-align: center;
+  color: #e74c3c;
+  padding: 20px;
+  font-size: 1.1em;
+  background: #ffeaa7;
+  border-radius: 6px;
+  margin: 20px 0;
+}

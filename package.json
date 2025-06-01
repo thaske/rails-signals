@@ -2,10 +2,15 @@
   "private": true,
   "type": "module",
   "devDependencies": {
+    "@types/node": "^22.15.29",
+    "sass-embedded": "^1.89.1",
     "vite": "^5.4.19",
-    "vite-plugin-ruby": "^5.1.1"
+    "vite-plugin-ruby": "^5.1.1",
+    "vite-plugin-solid": "^2.11.6"
   },
   "dependencies": {
-    "alien-signals": "^2.0.5"
+    "@solidjs/router": "^0.15.3",
+    "@tanstack/solid-query": "^5.79.0",
+    "solid-js": "^1.9.7"
   }
 }

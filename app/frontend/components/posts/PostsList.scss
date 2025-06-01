@@ -1,0 +1,95 @@
+// PostsList component styles using BEM pattern
+.posts-index {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.posts-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.post-card {
+  background: white;
+  border-radius: 8px;
+  padding: 25px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e9ecef;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  }
+
+  &__header {
+    margin-bottom: 20px;
+    border-bottom: 2px solid #f8f9fa;
+    padding-bottom: 15px;
+  }
+
+  &__title {
+    margin: 0 0 10px 0;
+    font-size: 1.5em;
+    font-weight: 600;
+
+    a {
+      color: #2c3e50;
+      text-decoration: none;
+
+      &:hover {
+        color: #3498db;
+        text-decoration: underline;
+      }
+    }
+  }
+
+  &__meta {
+    color: #6c757d;
+    font-size: 0.9em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  &__author {
+    margin-right: 15px;
+    font-weight: 500;
+  }
+
+  &__date {
+    margin-right: 15px;
+  }
+
+  &__content {
+    margin: 20px 0;
+    font-size: 1.1em;
+    line-height: 1.7;
+    color: #333;
+  }
+
+  &__footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid #f8f9fa;
+  }
+
+  &__comments-count {
+    color: #6c757d;
+    font-size: 0.9em;
+  }
+}
+
+.no-posts {
+  text-align: center;
+  color: #6c757d;
+  font-style: italic;
+  padding: 40px 20px;
+  font-size: 1.1em;
+}
